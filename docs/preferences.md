@@ -84,3 +84,50 @@ Enter your insulin type for the appropriate response curve to be used by the alg
 Note that the duration of insulin (DIA) action can be altered in the pump settings section of FreeAPS X. A minimum of 5 hours is required.
 
 <a href="https://www.diabettech.com/insulin/why-we-are-regularly-wrong-in-the-duration-of-insulin-action-dia-times-we-use-and-why-it-matters/">To understand why a higher duration of insulin action is used in FreeAPS X, click to see the following documentation.</a>
+
+### Max IOB
+The maximum amount of insulin on board (i.e. in the body). This includes insulin from all sources (basal and bolus) that is automatically delivered by FreeAPS X. Manual boluses are not subjected to this limiter. 
+
+Default is set to zero meaning FreeAPS X can only set temporary basal rates lower that your profile basal rate. I.e. it cannot set temporary basal rates that exceed your profile basal rate in cases of high blood sugar, and it cannot use super micro boluses to control blood sugar.  
+
+You can start by increasing this number to your average mealtime bolus and evaluating its effect. The default recommendation is “average mealbolus + 3x max daily basal” when using super micro boluses.
+
+Ex: If you average mealtime bolus is 6 U, and you have the following basal profile:
+
+- 12am: 1 U/hr
+- 6pm: 2 U/hr (this is the "max" basal used) 
+- 9pm: 1.5 U/hr 
+
+Your recommended IOB = 6 + 3 * 3 = 15 U. 
+
+If you are insulin resistance, you can continue to increase this number further to allow for greater insulin delivery.
+
+### Max COB
+The maximum amount of carbs that FreeAPS X is allowed to dose for. This is a safety feature that protects against erroneous carbohydrate entries that could lead to hypoglycemia episodes.
+
+Choose the maximum amount of carbs you bolus for
+
+### Max Daily Safety Multiplier
+Limits the maximum temporary basal rate FreeAPS X is able to use at **any time. The default setting of 3, which is unlikely to need adjustment, allows for a maximum basal rate of 3x the max daily basal.
+
+Ex: If you have the following basal profile:
+
+- 12am: 1 U/hr
+- 6pm: 2 U/hr (this is the "max" basal used) 
+- 9pm: 1.5 U/hr 
+
+The maximum temporary basal rate that can be set is 2 U/hr * 3 = 6 U/hr
+
+### Current Basal Safety Multiplier 
+Limits the maximum temporary basal rate FreeAPS X is able to use at the **current time. The default setting of 4, which is unlikely to need adjustment, allows for a maxium basal rate of 4x the current basal rate. 
+
+Ex: If it is currently 9am and you have the following basal profile:
+
+- 12am: 1 U/hr
+- 6pm: 2 U/hr (this is the "max" basal used) 
+- 9pm: 1.5 U/hr 
+
+The maximum temporary basal rate that can be set by FreeAPS X at 9am is 1 U/hr * 4 = 4 U/hr
+
+### Autosens Max
+Please read <a href="/autosens-dynamic">Autosense and Dynamic ISF/ICR</a> before adjusting this setting.
