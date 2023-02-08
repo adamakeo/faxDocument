@@ -40,11 +40,17 @@ Dynamic ISF (using the default logarithmic algorithm in FreeAPS X) uses an alter
 This formula takes into consideration your current blood glucose (BG in mg/dl), total daily dose (TDD over the last 24 hours), insulin peak effect (peak activity normally is 120 min) and a new variable called adjustment factor (AF) that allows for user tuning of Dynamic ISF.
 
 ## Dynamic CR
-This is an experimental feature that alters the carb ratio (CR) based on current blood sugar and total daily dose (TDD). It uses the same formula as Dynamic ISF described above, namely:
+This is an experimental feature that alters the carb ratio (CR) based on current blood sugar and total daily dose (TDD). It uses a similar formula as Dynamic ISF described above, namely:
 
 - new.autosens.ratio = profile.sens * AF * TDD * log((BG/peak)+1) / 1800
 - New CR = (profile set CR)/(new.autosens.ratio)
+- Edge Case: if the new.autosens.ratio is greater than 1, the following formula is used: newest.new.autosens.ratio = (new.autosens.ratio - 1)/2 + 1 to make it less aggressive.
 
 If you find your CR changes dramatically day to day and FreeAPS X is not providing adequate bolus recommendations, you can test this feature. Note that FreeAPS X is already making modifications to your recommended boluses without this feature enabled.
+
+## Adjust Basal
+Dynamic ISF alone is designed only to replace the ISF formula used by autosens. Basal rates remain controlled solely by autosens calculations.
+
+Adjust 
 
 
