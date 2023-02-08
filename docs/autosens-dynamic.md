@@ -44,13 +44,35 @@ This is an experimental feature that alters the carb ratio (CR) based on current
 
 - new.autosens.ratio = profile.sens * AF * TDD * log((BG/peak)+1) / 1800
 - New CR = (profile set CR)/(new.autosens.ratio)
-- Edge Case: if the new.autosens.ratio is greater than 1, the following formula is used: newest.new.autosens.ratio = (new.autosens.ratio - 1)/2 + 1 to make it less aggressive.
 
 If you find your CR changes dramatically day to day and FreeAPS X is not providing adequate bolus recommendations, you can test this feature. Note that FreeAPS X is already making modifications to your recommended boluses without this feature enabled.
 
-## Adjust Basal
-Dynamic ISF alone is designed only to replace the ISF formula used by autosens. Basal rates remain controlled solely by autosens calculations.
+Note: 
+If the new.autosens.ratio is greater than 1, the following formula is used to make the calculated CR less aggressive: 
 
-Adjust 
+- newest.new.autosens.ratio = (new.autosens.ratio - 1)/2 + 1 
+
+## Adjust Basal
+Adjust basal introduces an alternative method of adjusting basal rates based on total daily dose (TDD). Turn on this setting to give basal adjustments more agility. If you have high variability of TDD day-to-day, keep this setting off.
+
+### Advanced Information
+Normally a new basal rate is set by autosens:
+
+- New basal profile = current basal profile * autosens.ratio
+
+Adjust basal replaces the autosens.ratio with basal.autosens.ratio calculated as such:
+
+- basal.autosens.ratio = (weighted average of TDD)/(2 week average of TDD)
+- New basal profile = current basal profile * basal.autosens.ratio
+
+See "Weighted Average of TDD" setting to understand how this variable is calculated.
+
+As an example:
+
+Bill has a TDD of 55 U over the last 24 hours. He has a 2 week TDD average of 48 U. He has set his Weighted average of TDD value in preferences at 0.7. His current profile basal rate is 1 U/h.
+
+- Weighted average of TDD = 0.7 * 55 U + 0.3 * 48 U = 52.9 U
+- basal.autosens.ratio = 52.9 U / 48 U = 1.10
+- New basal profile = 1 U/h * 1.10 = 1.10 U/h
 
 
