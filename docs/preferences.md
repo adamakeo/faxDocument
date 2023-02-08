@@ -130,4 +130,5 @@ Ex: If it is currently 9am and you have the following basal profile:
 The maximum temporary basal rate that can be set by FreeAPS X at 9am is 1 U/hr * 4 = 4 U/hr
 
 ### Autosens Max
-Please read <a href="/autosens-dynamic">Autosense and Dynamic ISF/ICR</a> before adjusting this setting.
+Please read <a href="/autosens-dynamic">Autosense and Dynamic ISF/ICR</a> and <a href="/autotune">Autotune</a> before adjusting this setting.
+
