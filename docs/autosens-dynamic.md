@@ -2,7 +2,7 @@
 ## Auto-sensitivity Mode
 - Note to check if AF affects autosens
 
-Auto-sensitivity reviews your last 8 hrs and 24 hrs of data every loop cycle (5 min) and determines whether you have been reacting more or less sensitively to insulin. It then makes conservative temporary adjustments to your basal rates, blood sugar target, and ISF.
+Auto-sensitivity (autosense or autosens) reviews your last 8 hrs and 24 hrs of data every loop cycle (5 min) and determines whether you have been reacting more or less sensitively to insulin. It then makes conservative temporary adjustments to your basal rates, blood sugar target, and ISF.
 
 To see how it compares to auto
 
@@ -41,14 +41,14 @@ Dynamic ISF (using the default logarithmic algorithm in FreeAPS X) uses an alter
 This formula takes into consideration your current blood glucose (BG in mg/dl), total daily dose (TDD over the last 24 hours), insulin peak effect (peak activity normally is 120 min) and a new variable called adjustment factor (AF) that allows for user tuning of Dynamic ISF.
 
 ## Dynamic CR
-This is an experimental feature that alters the carb ratio (CR) based on current blood sugar and total daily dose (TDD). It uses a similar formula as Dynamic ISF described above, namely:
+This is an experimental feature that alters the carb ratio (CR) based on current blood sugar and total daily dose (TDD). Unlike ISF, ICR by default is not altered by autosense and changed every Loop cycle. Using dynamic CR will result in a dramatic change in how ICR is calculated by FreeAPS X, and will result in it being modified every 5 min. Dynamic CR uses a similar formula as Dynamic ISF as described above:
 
 - new.autosens.ratio = profile.sens * AF * TDD * log((BG/peak)+1) / 1800
 - New CR = (profile set CR)/(new.autosens.ratio)
 
 If you find your CR changes dramatically day to day and FreeAPS X is not providing adequate bolus recommendations, you can test this feature. Note that FreeAPS X is already making modifications to your recommended boluses without this feature enabled.
 
-Note: 
+Note:
 If the new.autosens.ratio is greater than 1, the following formula is used to make the calculated CR less aggressive: 
 
 - newest.new.autosens.ratio = (new.autosens.ratio - 1)/2 + 1 
