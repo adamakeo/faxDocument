@@ -13,6 +13,6 @@ Autotune by contrast works on a longer time scale, making slow but sustained cha
 ## Should I enable autotune?
 If you believe your profile settings are accurate as is, you can choose to keep autotune disable; it may result in worse control day-to-day in certain scenarios such as extended periods of sickness followed by a quick recovery.
 
-If you decide to enable it, you should note that autotune is limited by autosens max and min ratios. You can expand the range these limiters set to give autotune more flexibility but this also affects autosense, dynamic ISF, dynamic CR, and adjust basal.
+If you decide to enable it, you should note that autotune is limited by autosens max and min ratios. You can alter these values to give autotune more flexibility but this also affects autosense, dynamic ISF, dynamic CR, and adjust basal.
 
 Instead, it is best if you review your settings in a few weeks, note the new autotune values, and change your profile settings to match them giving autotune a new starting place to move from.

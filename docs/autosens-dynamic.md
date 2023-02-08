@@ -1,4 +1,4 @@
-# Autosense and Dynamic ISF/ICR
+# Autosense, Dynamic ISF/ICR and Adjust Basal
 ## Auto-sensitivity Mode
 - Note to check if AF affects autosens
 
@@ -54,7 +54,7 @@ If the new.autosens.ratio is greater than 1, the following formula is used to ma
 - newest.new.autosens.ratio = (new.autosens.ratio - 1)/2 + 1 
 
 ## Adjust Basal
-Adjust basal replaces autosense's formula for adjusting basal rates, with one dependent on total daily dose (TDD). Turn on this setting to give basal adjustments more agility. If you have high variability of TDD day-to-day, keep this setting off.
+Adjust basal replaces autosense's formula for adjusting basal rates, with one dependent on total daily dose (TDD) of insulin. Turn on this setting to give basal adjustments more agility. If you have high variability of TDD day-to-day, keep this setting off.
 
 ### Advanced Information
 Normally a new basal rate is set by autosens:

@@ -152,7 +152,7 @@ This setting determines the maximum ratio autosense can use for its adjustments.
 
 If you have Dynamic ISF and/or Dynamic CR, this setting will also limit their ability to make more aggressive adjustments.
 
-If you have autotune enabled, this setting also limits its ability to make adjustments to your ICR, basal profile and ISF.
+If you have autotune enabled, this setting also limits its ability to make more aggressive adjustments to your ICR, basal profile and ISF.
 
 ### Autosens Min
 Please read <a href="/autosens-dynamic">Autosense and Dynamic ISF/ICR</a> and <a href="/autotune">Autotune</a> before adjusting this setting.
@@ -161,6 +161,8 @@ This setting determine the minimum ratio autosense can use for its adjustments. 
 
 If you have Dynamic ISF and/or Dynamic CR, this setting will also limit their ability to make less aggressive adjustments
 
-If you have autotune enabled, this setting also limits its ability to make adjustments to your ICR, basal profile and ISF.
+If you have autotune enabled, this setting also limits its ability to make less aggressive adjustments to your ICR, basal profile and ISF.
 
-## Ena
+## Dynamic Settings
+### Enable Dynamic ISF
+Please read <a href="/autosens-dynamic">Autosense and Dynamic ISF/ICR</a> for more information.
