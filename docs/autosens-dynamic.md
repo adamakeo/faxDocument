@@ -4,6 +4,7 @@
 
 Auto-sensitivity reviews your last 8 hrs and 24 hrs of data every loop cycle (5 min) and determines whether you have been reacting more or less sensitively to insulin. It then makes conservative temporary adjustments to your basal rates, blood sugar target, and ISF.
 
+To see how it compares to auto
 
 Example:
 Autosense finds Bill has been running more sensitive to insulin lately. In the last 24 hours, he has been 2X more sensitive to insulin, whereas in the last 8 hours, he has been 3X more sensitive to insulin.
@@ -53,7 +54,7 @@ If the new.autosens.ratio is greater than 1, the following formula is used to ma
 - newest.new.autosens.ratio = (new.autosens.ratio - 1)/2 + 1 
 
 ## Adjust Basal
-Adjust basal introduces an alternative method of adjusting basal rates based on total daily dose (TDD). Turn on this setting to give basal adjustments more agility. If you have high variability of TDD day-to-day, keep this setting off.
+Adjust basal replaces autosense's formula for adjusting basal rates, with one dependent on total daily dose (TDD). Turn on this setting to give basal adjustments more agility. If you have high variability of TDD day-to-day, keep this setting off.
 
 ### Advanced Information
 Normally a new basal rate is set by autosens:

@@ -48,6 +48,22 @@ After entering carbs, a mealtime bolus will not be suggested or delivered.
 ### Display HR on Watch
 Displays your heart rate on your iWatch FreeAPS X app
 
+
+For Loopers Using Libre as  CGM
+What is a heartbeat and why should it come from a CGM?
+For optimum performance, the app should be driven by the continuous glucose monitor (CGM) so the Loop cycle starts with the most recent glucose information available, updates the glucose prediction and then sends commands to the pump, if needed, to modify insulin delivery.
+
+When the phone is locked, a mechanism is required to “wake” up the app out of background mode so it can keep that loop symbol a nice green color.
+
+A Bluetooth connection is used by Loop to perform this waking from background while the phone is locked.  This is called the heartbeat.
+
+Best case – this comes from the CGM (this is the case with Dexcom where app is on the Looper’s phone)
+Second best case – this comes from the RileyLink device (for Eros or Medtronic)
+With DASH pods, there is no reliable heartbeat that works all of the time when the phone is locked
+In order to solve this problem, the folks who work with Libre sensors make the Bluetooth connection available to Loop. This is an area where more progress may happen, but for now, it is xDrip4iOS that has this feature working with Loop. Follow the heartbeat instructions below to get best performance using Libre and allow continued looping while phone is locked.
+
+
+
 ### Display Statistics
 Visual: Displays statistics including Time in range (TIR), coefficent of variance (CV) and estimated A1c at the bottom of the main screen. 
 
@@ -132,3 +148,19 @@ The maximum temporary basal rate that can be set by FreeAPS X at 9am is 1 U/hr *
 ### Autosens Max
 Please read <a href="/autosens-dynamic">Autosense and Dynamic ISF/ICR</a> and <a href="/autotune">Autotune</a> before adjusting this setting.
 
+This setting determines the maximum ratio autosense can use for its adjustments. Increasing this value allows autosense to make more aggressive adjustments to your basal profile, ISF, and target blood glucose.
+
+If you have Dynamic ISF and/or Dynamic CR, this setting will also limit their ability to make more aggressive adjustments.
+
+If you have autotune enabled, this setting also limits its ability to make adjustments to your ICR, basal profile and ISF.
+
+### Autosens Min
+Please read <a href="/autosens-dynamic">Autosense and Dynamic ISF/ICR</a> and <a href="/autotune">Autotune</a> before adjusting this setting.
+
+This setting determine the minimum ratio autosense can use for its adjustments. Decreasing this value allows autosense to make less aggressive adjustments to your basal profile, ISF, and target blood glucose.
+
+If you have Dynamic ISF and/or Dynamic CR, this setting will also limit their ability to make less aggressive adjustments
+
+If you have autotune enabled, this setting also limits its ability to make adjustments to your ICR, basal profile and ISF.
+
+## Ena
