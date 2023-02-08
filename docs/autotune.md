@@ -11,7 +11,7 @@ Autosense is designed to make rapid changes to your profile settings every loop 
 Autotune by contrast works on a longer time scale, making slow but sustained changes to your profile to get your set baseline settings more accurate. It is run every 24 hours.
 
 ## Should I enable autotune?
-If you believe your profile settings are accurate as is, you can choose to keep autotune disable; it may result in worse control day-to-day in certain scenarios such as when sick.
+If you believe your profile settings are accurate as is, you can choose to keep autotune disable; it may result in worse control day-to-day in certain scenarios such as extended periods of sickness followed by a quick recovery.
 
 If you decide to enable it, you should note that autotune is limited by autosens max and min ratios. You can expand the range these limiters set to give autotune more flexibility but this also affects autosense, dynamic ISF, dynamic CR, and adjust basal.
 
