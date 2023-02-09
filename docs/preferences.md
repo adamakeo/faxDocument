@@ -35,7 +35,7 @@ To configure loop status, pump or to bolus, select the "announcement" event type
 * To control looping, enter either "looping:true" or "looping:false"
 * To control temporary basal rate, enter "tempbasal:(rate),(minutes)" (ex: tempbasal:0,60 to set temporary basal rate at 0 U/hr for 60 minutes)
 
-Note that remote configurations with announcement-type events can only be repeated every 10 minutes.
+Note that remote configurations with announcement-type events can only be performed every 10 minutes.
 
 ### Recommended Insulin Fraction
 Recommended insulin fraction is a safety feature built into FreeAPS X. By default, FreeAPS X calculates an "insulin required" value when bolusing for carbs that is half of the insulin actually needed to deal with said meal. FreeAPS X then delivers the remaining insulin via SMBs as the blood sugar starts to rise.
@@ -202,4 +202,42 @@ This ratio is used by "Adjust basal" for its calculations. It allows you to effe
 Example: Bill has a TDD of 55 U over the last 24 hours. He has had a TDD of 48 U over the last 14 days. His Weighted Average is set at 0.65:
 - TDD Average = 55 * 0.65 + 48 * 0.35 = 52.55
 
-As you increase the default 0.65 ratio to a higher number, the basal rates will be moreso determined by your last 24 hour insulin usage.
+As you increase the default 0.65 ratio to a higher number, the basal rates will be more so determined by your last 24 hour insulin usage, resulting in more dramatic changes.
+
+### Adjust basal
+Please read <a href="/autosens-dynamic">Autosense and Dynamic ISF/ICR</a> for more information.
+
+Adjust basal replaces the sensitivity-based formula normally used by autosense for adjusting your basal rates, with one dependent on your TDD of insulin. Use this if FreeAPS X is not by default suggesting adequate basal rates for you.
+
+### Threshold Setting (mg/dl)
+The threshold setting is a safety limiter function. If blood sugar at any point is predicted to go below this value, FreeAPS X will suspend insulin delivery (SMBs are halted and Temp Basal of 0 U/hr set) and wait till its algorithms predict otherwise. This setting can be useful if you are experiencing a high number of hypoglycemia events. <a href="https://openaps.readthedocs.io/en/latest/docs/While%20You%20Wait%20For%20Gear/Understand-determine-basal.html?highlight=Safety%20Threshold">Please review the OpenAPS documents if you want a better understanding of how it is used.</a> The threshold setting is by default determined by your blood glucose target setting:
+
+- Lower Target: 90 mg/dl = Threshold 65 mg/dl 
+- Lower Target: 100 mg/dl = Threshold 70 mg/dl 
+- Lower Target: 110 mg/dl = Threshold 75 mg/dl 
+- Lower Target: 130 mg/dl = Threshold 85 mg/dl 
+
+
+This setting allows you to choose a higher threshold setting than default. Note that you cannot choose something that is lower than the default setting.
+
+Ex: Bill has set a BG target of 110 mg/dl. He has set his threshold to 65 mg/dl in his FreeAPS X preferences. Because FreeAPS X's default threshold setting is 75 mg/dl for 110 mg/dl blood glucose target, Bill's preference will be ignored.
+
+### Enable SMB Always
+Enabling this setting allows SMBs to be delivered in the following situations:
+
+- You have carbs on board (COB).
+- You entered carbs a minimum of 6 hours ago (even if you have zero COB now).
+
+SMBs will remain on if you have a lower temporary target set (example: you are preparing for a hefty meal), but will be disabled if a higher temporary target is set (example: you are planning to exercise).
+
+There are limitations on the size of SMBs. <a href = "https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/oref1.html#understanding-super-micro-bolus-smb">See the OpenAPS documentation for more information.</a>
+
+
+
+### Enable SMB With High BG
+This is a safety limiter that only allows SMBs to occur above a certain blood glucose level. Some individuals with variable sensitivity may find that SMBs can cause low blood sugars and rollercoasters when near their target. 
+
+If you are in closed loop and rely heavily on UAM (i.e. you do not bolus for your meals) you should keep this feature disabled so FreeAPS X can provide you with the necessary insulin if you are predicted to go high. Else if you are currently at a normal BG level, SMBs will not be delivered.
+
+### ... When Blood Glucose is Over (mg/dl)
+See the above setting for more information. This allows you to configure the target at which SMBs will be enabled.
