@@ -166,3 +166,10 @@ If you have autotune enabled, this setting also limits its ability to make less 
 ## Dynamic Settings
 ### Enable Dynamic ISF
 Please read <a href="/autosens-dynamic">Autosense and Dynamic ISF/ICR</a> for more information.
+
+Dynamic ISF is a more aggressive alternative to autosense's ISF adjustment algorithm. Turn this on if you believe yourself to be highly resistant to insulin at some points in the day and autosense does not adequately alter your ISF to deal with it.
+
+### Enable Dynamic CR
+Please read <a href="/autosens-dynamic">Autosense and Dynamic ISF/ICR</a> for more information.
+
+Dynamic CR alters your ICR every Loop cycle based on your current blood glucose and TDD of insulin. Turn it on if your ICR varies day-to-day or at different blood glucose levels and FreeAPS X is not consistently suggesting appropriate boluses. You should rule out other causes for this first including inadequate carb counting or inappropriate profile ICR.
