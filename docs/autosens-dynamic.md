@@ -35,23 +35,23 @@ Bill is now temporarily set to have an ISF of 2.73.
 
 Dynamic ISF (using the default logarithmic algorithm in FreeAPS X) uses an alternative formula to calculate the autosens.ratio for ISF adjustments:
 
-- new.autosens.ratio = profile.sens * AF * TDD * log((BG/peak)+1) / 1800
-- New ISF = (profile set ISF)/(new.autosens.ratio)
+- autosens.ratio = profile.sens * AF * TDD * log((BG/peak)+1) / 1800
+- New ISF = (profile set ISF)/(autosens.ratio)
 
-This formula takes into consideration your profile set ISF (profile.sens) current blood glucose (BG in mg/dl), total daily dose (TDD over the last 24 hours), insulin peak effect (peak activity normally is 120 min) and a new variable called adjustment factor (AF) that allows for user tuning of Dynamic ISF.
+This formula takes into consideration your profile set ISF (profile.sens in mg/dl) current blood glucose (BG in mg/dl), total daily dose (TDD over the last 24 hours), insulin peak effect (peak activity normally is 120 min) and a new variable called adjustment factor (AF) that allows for user tuning of Dynamic ISF/CR.
 
 ## Dynamic CR
 This is an experimental feature that alters the carb ratio (CR) based on current blood sugar and total daily dose (TDD). Unlike ISF, ICR by default is not altered by autosense and changed every Loop cycle. Using dynamic CR will result in a dramatic change in how ICR is calculated by FreeAPS X, and will result in it being modified every 5 min. Dynamic CR uses a similar formula as Dynamic ISF as described above:
 
-- new.autosens.ratio = profile.sens * AF * TDD * log((BG/peak)+1) / 1800
-- New CR = (profile set CR)/(new.autosens.ratio)
+- autosens.ratio = profile.sens * AF * TDD * log((BG/peak)+1) / 1800
+- New CR = (profile set CR)/(autosens.ratio)
 
 If you find your CR changes dramatically day to day and FreeAPS X is not providing adequate bolus recommendations, you can test this feature. Note that FreeAPS X is already making modifications to your recommended boluses without this feature enabled.
 
 Note:
-If the new.autosens.ratio is greater than 1, the following formula is used to make the calculated CR less aggressive: 
+If the autosens.ratio is greater than 1, the following formula is used to make the calculated CR less aggressive: 
 
-- newest.new.autosens.ratio = (new.autosens.ratio - 1)/2 + 1 
+- new.autosens.ratio = (autosens.ratio - 1)/2 + 1 
 
 ## Adjust Basal
 Adjust basal replaces autosense's formula for adjusting basal rates, with one dependent on total daily dose (TDD) of insulin. Turn on this setting to give basal adjustments more agility. If you have high variability of TDD day-to-day, keep this setting off.
@@ -61,16 +61,16 @@ Normally a new basal rate is set by autosens:
 
 - New basal profile = current basal profile * autosens.ratio
 
-Adjust basal replaces the autosens.ratio with basal.autosens.ratio calculated as such:
+Adjust basal replaces the autosens.ratio with its own autosens.ratio calculated as such:
 
-- basal.autosens.ratio = (weighted average of TDD)/(2 week average of TDD)
-- New basal profile = current basal profile * basal.autosens.ratio
+- autosens.ratio = (weighted average of TDD)/(2 week average of TDD)
+- New basal profile = current basal profile * autosens.ratio
 
 See "Weighted Average of TDD" setting to understand how this variable is calculated.
 
 As an example:
 
-Bill has a TDD of 55 U over the last 24 hours. He has a 2 week TDD average of 48 U. He has set his "Weighted average of TDD" in preferences to 0.7. His current profile basal rate is 1 U/h.
+Bill has a TDD of 55 U over the last 24 hours. He has a 14 day TDD average of 48 U. He has set his "Weighted average of TDD" in preferences to 0.7. His current profile basal rate is 1 U/h.
 
 - Weighted average of TDD = 0.7 * 55 U + 0.3 * 48 U = 52.9 U
 - basal.autosens.ratio = 52.9 U / 48 U = 1.10

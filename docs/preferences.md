@@ -172,4 +172,18 @@ Dynamic ISF is a more aggressive alternative to autosense's ISF adjustment algor
 ### Enable Dynamic CR
 Please read <a href="/autosens-dynamic">Autosense and Dynamic ISF/ICR</a> for more information.
 
-Dynamic CR alters your ICR every Loop cycle based on your current blood glucose and TDD of insulin. Turn it on if your ICR varies day-to-day or at different blood glucose levels and FreeAPS X is not consistently suggesting appropriate boluses. You should rule out other causes for this first including inadequate carb counting or inappropriate profile ICR.
+Dynamic CR alters your ICR every loop cycle based on your current blood glucose and TDD of insulin. Turn it on if you experience your ICR changes day-to-day or at different blood glucose levels and FreeAPS X is not consistently suggesting appropriate boluses. You should rule out other causes for this first including inadequate carb counting or inappropriate profile ICR.
+
+### Adjustment Factor
+Please read <a href="/autosens-dynamic">Autosense and Dynamic ISF/ICR</a> for more information.
+
+Adjustment Factor (AF) allows one to bias the Dynamic ISF and Dynamic CR (if they are enabled) towards more or less aggressive results. Maintaining this value at 1 keeps Dynamic ISF/CR at its default. Increasing AF above 1 will result in Dynamic ISF/CR outputting more aggressive values, while decreasing it below 1 will bias the output towards less aggressive values.
+
+Example: Bill has Dynamic CR on. His Dynamic CR is calculated to be 1:4 by FreeAPS X based on his current blood glucose, TDD and his set ISF. 
+
+But Bill decides to set his AF to 1.2 because he has found recently that Dynamic CR has not been giving him aggressive enough numbers. FreeAPS X acts accordingly, and increases his CR to something above 1:4 instead (ex: 1:3.5). Note that this is a simplified example. See the section on Dynamic CR for more information.
+
+It is important to understand that AF is not a safety limiter. By increasing the AF, you are are not allowing FreeAPS X to choose both higher and lower values based on your needs. Rather by increasing AF, you are telling the system that ALL of your Dynamically calculated ISF/CR values have not been aggressive enough, and you want the system to make them more aggressive.
+
+The same is true when you lower AF. You are telling the system that ALL dynamically calculated values are too aggressive, and to make them lower.
+
