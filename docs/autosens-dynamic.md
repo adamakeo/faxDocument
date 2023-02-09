@@ -77,3 +77,5 @@ Bill has a TDD of 55 U over the last 24 hours. He has a 14 day TDD average of 48
 - New basal profile = 1 U/h * 1.10 = 1.10 U/h
 
 
+## Final Thoughts
+- Remember that all autosense ratios calculated in this section are being limited by autosens max and autosens min safety limiters.
