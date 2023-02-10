@@ -18,3 +18,5 @@ There are numerous settings related to enabling SMBs in FreeAPS X. Below is the 
 - enable SMB/UAM (if enabled in preferences) if a low temptarget is set
 
 A flow chart will be added here for greater clarity on FreeAPS X SMB decision making.
+
+# Unannounced Meals
