@@ -1,17 +1,15 @@
-# Welcome to MkDocs
+# Welcome to FreeAPS X documentation for BC Diabetes 
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Getting Started
+Read through the information provided in preferences and other linked resources. For a review on basal rates, insulin carb ratio (ICR) and insulin sensitivity factor (ISF), <a href="/basal-isf-icr">click here</a>.
 
-## Commands
+For help building the app, defer to <a href="https://www.loopandlearn.org/freeaps-x/">Loop and Learn</a>. These resources specifically describe <a href="https://github.com/Jon-b-m/freeaps">Jon's fork</a>. This branch is undergoing rapid development so please be patient for documentation updates.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## How to use this documentation
+To be done
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+## Citations
+- <a href="https://loopkit.github.io/loopdocs/">Loop Documentation</a>
+- <a href="https://openaps.readthedocs.io/">OpenAPS Documentation</a>
+- <a href="https://androidaps.readthedocs.io/">Android APS Documentation</a>
+- Support groups on <a href="https://t.me/s/FreeAPSX_News">Telegram Releases</a>, <a href="https://t.me/FreeAPSX_Eng">Telegram News</a>, <a href="https://discord.gg/32VCtN3tMF">Discord</a> and Slack
