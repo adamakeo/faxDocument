@@ -393,11 +393,27 @@ Deprecated; Bolus snooze has been removed in latest versions of OpenAPS so this 
 ### Min 5m Carbimpact
 This is a fallback setting used by FreeAPS X. If FreeAPS X is unable to tell if carbs are being absorbed from blood sugar readings, it will estimate how many carbs have been absorbed using this setting.
 
-The default value of 8mg/dL/5min assumes carbohydrates will increase blood sugar by 8 mg/dl every 5 minutes. The actual amount of carbohydrates estimated to be absorbed is depended on your calculated carbohydrate sensitivity ratio (CSF = ISF/ICR)
+The default value of 8mg/dL/5min assumes carbohydrates will increase blood sugar by 8 mg/dl every 5 minutes. The actual amount of carbohydrates estimated to be absorbed is depended on your calculated carbohydrate sensitivity ratio (CSF = ISF/ICR).
 
 ### Autotune ISF Adjustment Fraction
+Autotune by default adjust your ISF by 20% each nightly run. This values allows you to make your autotune adjustments less aggressive.
+
+Set this at 1 for the full 20% adjustment.
+
+Advanced information:
+
+-  adjustedISF = adjustmentFraction * autotuneISF + (1-adjustmentFraction) * profileISF
+- newISF = ( 0.8 * profileISF ) + ( 0.2 * adjustedISF )
+
+Example: Bill has a profile ISF of 3. Autotune thinks he has a true ISF value of 4. His adjustment fraction is 1.
+
+- adjustedISF = 1 * 4 + (1 - 1) * 3 = 4
+- newISF = (0.8 * 3) + (0.2 * 4) = 3.2
+
+Assuming autotune is not being limited by the autosense max and min, Bill's ISF will be set to 3.2 by autotune tonight. Autotune will then repeat the following night, starting with a profileISF = 3.2
 
 ### Remaining Carbs Fraction
+
 
 ### Remaining Carbs Cap
 
