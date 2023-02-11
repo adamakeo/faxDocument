@@ -1,4 +1,5 @@
 # Preferences
+Note: FreeAPS X is the iPhone app. It utilizes the OpenAPS algorithm for determining insulin dosing.
 
 ## FreeAPS X
 
@@ -61,8 +62,6 @@ Best case – this comes from the CGM (this is the case with Dexcom where app is
 Second best case – this comes from the RileyLink device (for Eros or Medtronic)
 With DASH pods, there is no reliable heartbeat that works all of the time when the phone is locked
 In order to solve this problem, the folks who work with Libre sensors make the Bluetooth connection available to Loop. This is an area where more progress may happen, but for now, it is xDrip4iOS that has this feature working with Loop. Follow the heartbeat instructions below to get best performance using Libre and allow continued looping while phone is locked.
-
-
 
 ### Display Statistics
 Visual: Displays statistics including Time in range (TIR), coefficent of variance (CV) and estimated A1c at the bottom of the main screen. 
@@ -265,8 +264,6 @@ If you already have "Enable SMB Always" on, this feature is redundent and does n
 See the above setting for more information. This allows you to configure the target at which SMBs will be enabled.
 
 ### Enable UAM
-Unannounced Meal (UAM) provides an alternative method (in addition to or instead of carb entry) for detecting and safely dosing insulin in response to significant BG rises, whether they are due to meals, adrenaline, or any other reason.
-
 With this option enabled, the SMB algorithm can recognize unannounced meals. This is helpful if you forget to tell FreeAPS X about your carbs or estimate your carbs wrong and the amount of entered carbs is wrong or if a meal with lots of fat and protein has a longer duration than expected. Without any carb entry, UAM can recognize fast glucose increasements caused by carbs, adrenaline, etc, and tries to adjust it with SMBs. This also works the opposite way: if there is a fast glucose decreasement, it can stop SMBs earlier.
 
 ### Max SMB Basal Minutes
@@ -298,24 +295,110 @@ The minimum amount of insulin that can be bolused by FreeAPS X via an SMB. This 
 
 ## OpenAPS Targets Settings
 ### High Temptarget Raises Sensitivity
+Please read <a href="/autosens-dynamic">Autosense and Dynamic ISF/ICR</a> for more information.
+
+Normally FreeAPS X assumes your sensitivity will be lower with higher blood sugar levels. During periods of exercise, some people may instead experience increased sensitivity to insulin. With this feature enabled, setting a high temporary target will decrease the autosens.ratio being utilized for ISF and basal adjustments, resulting in less insulin being delivered overall. This scales with the temporary target set; higher and higher temp targets lead to lower and lower insulin delivery in the form of basal rates and corrections. 
+
+Note that this setting disables Dynamic ISF at high temp targets.
+
 ### Low Temptarget Lowers Sensitivity
+Please read <a href="/autosens-dynamic">Autosense and Dynamic ISF/ICR</a> for more information.
+
+When planning to have a heavy meal, you may want to set a low temporary target to avoid high blood sugar spikes. You may also want FreeAPS X to deliver more insulin during this time to prevent meals from spiking too high. Enabling this feature will increase your autosens.ratio, which is utilized for ISF and basal adjustments, resulting in greater insulin delivery. This will allow FreeAPS X to better deal with post-prandial spiking.
+
 ### Sensitivity Raises Target
+When performing autosense and insulin dosing calculations, FreeAPS X uses a target blood glucose that is by default the lower value in your target range.
+
+Example: Bill has a target range of 5.5 to 6.0. His target blood glucose is thus 5.5. (Note that Bill's target is not exactly this value; FreeAPS X alters the target via autosense to improve its dosing)
+
+When "Sensitivity Raises Target" is enabled, FreeAPS X will set a higher blood glucose target to base its insulin dosage calculations off of if it detects sensitivity. This can be useful if you find FreeAPS X is too aggressively.
+
+Advanced information:
+Please read <a href="/autosens-dynamic">Autosense and Dynamic ISF/ICR</a> for more information.
+
+If the autosens.ratio is determined to be <1.0, this setting comes into effect and increases the blood glucose target by a small amount. See the OpenAPS code base for the exact formulas used.
+
 ### Resistance Lowers Target
+See "Sensitivity Raises Target" for more information. When FreeAPS X detects high insulin resistance, it will set a lower blood glucose target for insulin dosage calculations, providing more insulin overall. This is useful for patients who experience uncontrollable highs.
+
+Advanced information:
+Please read <a href="/autosens-dynamic">Autosense and Dynamic ISF/ICR</a> for more information.
+
+If the autosens.ratio is determined to be >1.0, this setting comes into effect and decreases the blood glucose target by a small amount. See the OpenAPS code base for the exact formulas used.
+
 ### Advanced Target Adjustments
+Deprecated; autosense has alternative functions for determining if insulin can be safely added when high.
+
 ### Exercise Mode
+Redundant; same as "High Temptarget Raises Sensitivity". Enabling either feature will provide the desired changed to sensitivity with high temp targets.
+
 ### Half Basal Exercise Target
+This setting allows you to control the reduction in basal when using either "Exercise Mode" or "High Temptarget Raises Sensitivity." Default is 160 mg/dL meaning basal will be at 50% of your scheduled with a temporary target at 160, 60% at 140, and 75% at 120.
+
+Advanced information:
+See openAPS code for more information. The formula used is:
+
+- (halfBasalTarget - 100)/((halfBasalTarget - 100)+(targetBG-100))
+
+Example: Bill has a halfBasalTarget of 160 and has set a temporary target of 120 for his upcoming exercise. Therefore only 75% of his scheduled basal rate will be provided:
+
+- (160 - 100)/((160 - 100) + (120 - 100)) = 0.75
+
 ### Wide BG Target Range
+By default FreeAPS X ignores your upper value when setting a target range. 
+
+Example: Bill has set a target range of 5.5-6.0. FreeAPS X internally sets it at 5.5-5.5.
+
+This setting allows you to change that behaviour so FreeAPS X targets a desired range instead of your lower value.
+
+Note: This feature is likely to be deprecated from the OpenAPS algorithm soon.
 
 ## OpenAPS Other Settings
 ### Rewind Resets Autosens
+Rewind in Medtronic lingo refers to the attachment of a new insulin reservoir and infusion set. For Omnipod users, this means replacing your pod with a new one.
+
+When you change the insulin injection site, you might find your insulin sensitivity is altered based on how well its diffusing into your bloodstream. 
+
+This setting resets autosense's calculated autosens.ratio and forces it to restart anew from the time of the site change to improve your calculated basal rates, sensitivity ratio and target blood glucose.
+
+Please read <a href="/autosens-dynamic">Autosense and Dynamic ISF/ICR</a> for more information.
 ### Use Custom Peak Time
+Allows you to optimize at what time your insulin has maximum activity if the defaults do not work for you.
+
 ### Insuln Peak Time
+Requires "Use Custom Peak Time" to be enabled. Select a peak activity time point, within the limits set by OpenAPS based on your insulin type.
+
 ### Skip Neutral Temps
+This is a feature that has been brought from the OpenAPS algoirtm but does not play much role in FreeAPS X. Light sleepers with OpenAPS would find that the notifications every time OpenAPS made a temp basal adjustment, would wake them up from sleep. 
+
+This setting attempts to reduce notifications that are produced by OpenAPS (and FreeAPS X) with the downside of perhaps impacting control and making it harder to see if the system is working.
+
+Recommend to keep this setting disabled.
+
 ### Unsuspend if No Temp
+After suspending your pump you will be provided a reminder at a chosen time to manually resume your pump. Many people however neglect this reminder and forget to unsuspend, leading to highs.
+
+This feature allows you to use zero temp basals as a way of unsuspending your pump automatically. Prior to suspending your pump, set a 0 U/hr temp basal for the period of time you want the pod to remain suspended. Then suspend the pod. Once the temp basal expires, the pod will be automatically reactivated.
+
 ### Suspend Zeros IOB
+This allows FreeAPS X to better understand that when a pump supension occurs, no insulin is being delivered to the patient.
+
+FreeAPS X will set a zero temp basal (0 U/hr) during pump suspensions, improving its insulin on board calculations, and thereby its algorithm calculations.
+
+Recommended to keep this setting enabled.
+
 ### Bolus Snooze DIA Divisor
+Deprecated; Bolus snooze has been removed in latest versions of OpenAPS so this value does not matter.
+
 ### Min 5m Carbimpact
+This is a fallback setting used by FreeAPS X. If FreeAPS X is unable to tell if carbs are being absorbed and depleted from blood sugar readings, it will
+
+-> this description should be verified
+
 ### Autotune ISF Adjustment Fraction
+
 ### Remaining Carbs Fraction
+
 ### Remaining Carbs Cap
+
 ### Noisy CGM Target Multiplier
