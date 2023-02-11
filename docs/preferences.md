@@ -57,7 +57,9 @@ Best case – this comes from the CGM (this is the case with Dexcom where app is
 Second best case – this comes from the RileyLink device (for Eros or Medtronic)
 With DASH pods, there is no reliable heartbeat that works all of the time when the phone is locked
 
-This setting allows you to view your hearbeat on your watch
+This setting allows you to view your hearbeat on your watch.
+
+--- Need to confirm this setting description ---
 
 ### Display Statistics
 Visual: Displays statistics including Time in range (TIR), coefficent of variance (CV) and estimated A1c at the bottom of the main screen. 
