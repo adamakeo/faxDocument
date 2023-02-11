@@ -1,14 +1,5 @@
 site_name: My Docs
 plugins:
   - search
-  - minify:
-      minify_html: true
-      minify_js: true
-      minify_css: true
-      htmlmin_opts:
-          remove_comments: true
-      cache_safe: true
-      js_files:
-      css_files:
 theme:
   name: material
