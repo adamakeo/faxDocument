@@ -1,1 +1,611 @@
-<!doctype html><html lang=en class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link href=../UI/ rel=prev><link href=../autotune/ rel=next><link rel=icon href=../assets/images/favicon.png><meta name=generator content="mkdocs-1.4.2, mkdocs-material-9.0.12"><title>Autosense, Dynamic ISF/ICR and Adjust Basal - My Docs</title><link rel=stylesheet href=../assets/stylesheets/main.0d440cfe.min.css><link rel=stylesheet href=../assets/stylesheets/palette.2505c338.min.css><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback"><style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style><script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script></head> <body dir=ltr data-md-color-scheme=default data-md-color-primary data-md-color-accent> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#autosense-dynamic-isficr-and-adjust-basal class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <header class=md-header data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=.. title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component=logo> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> My Docs </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> Autosense, Dynamic ISF/ICR and Adjust Basal </span> </div> </div> </div> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg> </label> <nav class=md-search__options aria-label=Search> <button type=reset class="md-search__icon md-icon" title=Clear aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg> </button> </nav> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list role=presentation></ol> </div> </div> </div> </div> </div> </nav> </header> <div class=md-container data-md-component=container> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=.. title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component=logo> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg> </a> My Docs </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=.. class=md-nav__link> Welcome to FreeAPS X documentation for BC Diabetes </a> </li> <li class=md-nav__item> <a href=../UI/ class=md-nav__link> User Interface Review </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> Autosense, Dynamic ISF/ICR and Adjust Basal <span class="md-nav__icon md-icon"></span> </label> <a href=./ class="md-nav__link md-nav__link--active"> Autosense, Dynamic ISF/ICR and Adjust Basal </a> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#auto-sensitivity-mode class=md-nav__link> Auto-sensitivity Mode </a> </li> <li class=md-nav__item> <a href=#dynamic-isf class=md-nav__link> Dynamic ISF </a> <nav class=md-nav aria-label="Dynamic ISF"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#advanced-information class=md-nav__link> Advanced information </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#dynamic-cr class=md-nav__link> Dynamic CR </a> </li> <li class=md-nav__item> <a href=#adjust-basal class=md-nav__link> Adjust Basal </a> <nav class=md-nav aria-label="Adjust Basal"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#advanced-information_1 class=md-nav__link> Advanced Information </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#final-thoughts class=md-nav__link> Final Thoughts </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=../autotune/ class=md-nav__link> Autotune </a> </li> <li class=md-nav__item> <a href=../basal-isf-icr/ class=md-nav__link> Basal, ISF and ICR </a> </li> <li class=md-nav__item> <a href=../building/ class=md-nav__link> Building </a> </li> <li class=md-nav__item> <a href=../preferences/ class=md-nav__link> Preferences </a> </li> <li class=md-nav__item> <a href=../smb-uam/ class=md-nav__link> SMB and UAM </a> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#auto-sensitivity-mode class=md-nav__link> Auto-sensitivity Mode </a> </li> <li class=md-nav__item> <a href=#dynamic-isf class=md-nav__link> Dynamic ISF </a> <nav class=md-nav aria-label="Dynamic ISF"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#advanced-information class=md-nav__link> Advanced information </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#dynamic-cr class=md-nav__link> Dynamic CR </a> </li> <li class=md-nav__item> <a href=#adjust-basal class=md-nav__link> Adjust Basal </a> <nav class=md-nav aria-label="Adjust Basal"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#advanced-information_1 class=md-nav__link> Advanced Information </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#final-thoughts class=md-nav__link> Final Thoughts </a> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <h1 id=autosense-dynamic-isficr-and-adjust-basal>Autosense, Dynamic ISF/ICR and Adjust Basal</h1> <h2 id=auto-sensitivity-mode>Auto-sensitivity Mode</h2> <ul> <li>Note to check if AF affects autosens</li> </ul> <p>Auto-sensitivity (autosense or autosens) reviews your last 8 hrs and 24 hrs of data every loop cycle (5 min) and determines whether you have been reacting more or less sensitively to insulin. It then makes conservative temporary adjustments to your basal rates, blood sugar target, and ISF.</p> <p>Example: Autosense finds Bill has been running more sensitive to insulin lately. In the last 24 hours, he has been 2X more sensitive to insulin, whereas in the last 8 hours, he has been 3X more sensitive to insulin.</p> <p>Autosense then takes the more conservative calculated sensitivity. In this example, the more conservative value is obtained from the 8 hour window because by assuming Bill is 3X more as opposed to 2X more sensitive to insulin, the system will be posed to give less insulin.</p> <p>If you are using autotune, autosense will use your calculated autotune ICR, ISF and basal rates as its baseline as opposed to your set values.</p> <p>Note that autosense does not look at meals and make adjustments to your ICR. It only looks at your sensitivity to insulin and adjust ISF/basal rates/blood sugar targets accordingly.</p> <h2 id=dynamic-isf>Dynamic ISF</h2> <p>Autosense was thought by many to be too conservative and slow at making changes. Dynamic ISF is a drop-in replacement for autosense's ISF calculation formula, with the goal of making it more aggressive. If you find that you have high ISF variability throughout the day, you can turn this feature on.</p> <p>Dynamic ISF takes into consideration a new variable called "Adjustment Factor" which affects its aggressiveness. If dynamic ISF is too aggressive, you can decrease this number by 0.05-0.1 points to make it more meek. Likewise, increase this number if you still feel dynamic ISF is not aggressive enought.</p> <p>Note: Dynamic ISF is temporarily disabled and the system reverts to autosense if either "High Temptarget Raises Sensitivity" or "Exercise Mode" is enabled and a high temporary target has been set by the user.</p> <h3 id=advanced-information>Advanced information</h3> <p>Autosense determines an ratio (autosens.ratio) and alters your ISF in the following manner:</p> <ul> <li>New ISF = (profile set ISF)/(autosens.ratio)</li> </ul> <p>Example: Bill has an ISF of 3 in his settings. The system finds Bill has been more resistant to insulin lately and needs to increase his insulin. It calculates Bill to have an autosens.ratio of 1.1 (note that a larger autosens.ratio results in you having a lower, more aggressive ISF):</p> <p>When autosense goes to adjust the ISF, it does the following calculation:</p> <ul> <li>3 UL/mmol / 1.1 = 2.73 UL/mmol</li> </ul> <p>Bill is now temporarily set to have an ISF of 2.73.</p> <p>Dynamic ISF (using the default logarithmic algorithm in FreeAPS X) uses an alternative formula to calculate the autosens.ratio for ISF adjustments:</p> <ul> <li>autosens.ratio = profile.sens * AF * TDD * log((BG/peak)+1) / 1800</li> <li>New ISF = (profile set ISF)/(autosens.ratio)</li> </ul> <p>This formula takes into consideration your profile set ISF (profile.sens in mg/dl) current blood glucose (BG in mg/dl), total daily dose (TDD over the last 24 hours), insulin peak effect (peak activity normally is 120 min) and a new variable called adjustment factor (AF) that allows for user tuning of Dynamic ISF/CR.</p> <h2 id=dynamic-cr>Dynamic CR</h2> <p>This is an experimental feature that alters the carb ratio (CR) based on current blood sugar and total daily dose (TDD). Unlike ISF, ICR by default is not altered by autosense and changed every Loop cycle. Using dynamic CR will result in a dramatic change in how ICR is calculated by FreeAPS X, and will result in it being modified every 5 min. Dynamic CR uses a similar formula as Dynamic ISF as described above:</p> <ul> <li>autosens.ratio = profile.sens * AF * TDD * log((BG/peak)+1) / 1800</li> <li>New CR = (profile set CR)/(autosens.ratio)</li> </ul> <p>If you find your CR changes dramatically day to day and FreeAPS X is not providing adequate bolus recommendations, you can test this feature. Note that FreeAPS X is already making modifications to your recommended boluses without this feature enabled.</p> <p>Note: If the autosens.ratio is greater than 1, the following formula is used to make the calculated CR less aggressive: </p> <ul> <li>new.autosens.ratio = (autosens.ratio - 1)/2 + 1 </li> </ul> <h2 id=adjust-basal>Adjust Basal</h2> <p>Adjust basal replaces autosense's formula for adjusting basal rates, with one dependent on total daily dose (TDD) of insulin. Turn on this setting to give basal adjustments more agility. If you have high variability of TDD day-to-day, keep this setting off.</p> <h3 id=advanced-information_1>Advanced Information</h3> <p>Normally a new basal rate is set by autosens:</p> <ul> <li>New basal profile = current basal profile * autosens.ratio</li> </ul> <p>Adjust basal replaces the autosens.ratio with its own autosens.ratio calculated as such:</p> <ul> <li>autosens.ratio = (weighted average of TDD)/(2 week average of TDD)</li> <li>New basal profile = current basal profile * autosens.ratio</li> </ul> <p>See "Weighted Average of TDD" setting to understand how this variable is calculated.</p> <p>As an example:</p> <p>Bill has a TDD of 55 U over the last 24 hours. He has a 14 day TDD average of 48 U. He has set his "Weighted average of TDD" in preferences to 0.7. His current profile basal rate is 1 U/h.</p> <ul> <li>Weighted average of TDD = 0.7 * 55 U + 0.3 * 48 U = 52.9 U</li> <li>basal.autosens.ratio = 52.9 U / 48 U = 1.10</li> <li>New basal profile = 1 U/h * 1.10 = 1.10 U/h</li> </ul> <h2 id=final-thoughts>Final Thoughts</h2> <ul> <li>Remember that all autosense ratios calculated in this section are being limited by autosens max and autosens min safety limiters.</li> </ul> </article> </div> </div> </main> <footer class=md-footer> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-copyright> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <script id=__config type=application/json>{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script> <script src=../assets/javascripts/bundle.4b2c34cd.min.js></script> </body> </html>
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../UI/">
+      
+      
+        <link rel="next" href="../autotune/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+    
+    
+      
+        <title>Autosense, Dynamic ISF/ICR and Adjust Basal - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#autosense-dynamic-isficr-and-adjust-basal" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Autosense, Dynamic ISF/ICR and Adjust Basal
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Welcome to FreeAPS X documentation for BC Diabetes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UI/" class="md-nav__link">
+        User Interface Review
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Autosense, Dynamic ISF/ICR and Adjust Basal
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Autosense, Dynamic ISF/ICR and Adjust Basal
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#auto-sensitivity-mode" class="md-nav__link">
+    Auto-sensitivity Mode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dynamic-isf" class="md-nav__link">
+    Dynamic ISF
+  </a>
+  
+    <nav class="md-nav" aria-label="Dynamic ISF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advanced-information" class="md-nav__link">
+    Advanced information
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dynamic-cr" class="md-nav__link">
+    Dynamic CR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adjust-basal" class="md-nav__link">
+    Adjust Basal
+  </a>
+  
+    <nav class="md-nav" aria-label="Adjust Basal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advanced-information_1" class="md-nav__link">
+    Advanced Information
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    Final Thoughts
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autotune/" class="md-nav__link">
+        Autotune
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basal-isf-icr/" class="md-nav__link">
+        Basal, ISF and ICR
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building/" class="md-nav__link">
+        Building
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preferences/" class="md-nav__link">
+        Preferences
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../smb-uam/" class="md-nav__link">
+        SMB and UAM
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#auto-sensitivity-mode" class="md-nav__link">
+    Auto-sensitivity Mode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dynamic-isf" class="md-nav__link">
+    Dynamic ISF
+  </a>
+  
+    <nav class="md-nav" aria-label="Dynamic ISF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advanced-information" class="md-nav__link">
+    Advanced information
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dynamic-cr" class="md-nav__link">
+    Dynamic CR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adjust-basal" class="md-nav__link">
+    Adjust Basal
+  </a>
+  
+    <nav class="md-nav" aria-label="Adjust Basal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advanced-information_1" class="md-nav__link">
+    Advanced Information
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    Final Thoughts
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="autosense-dynamic-isficr-and-adjust-basal">Autosense, Dynamic ISF/ICR and Adjust Basal</h1>
+<h2 id="auto-sensitivity-mode">Auto-sensitivity Mode</h2>
+<ul>
+<li>Note to check if AF affects autosens</li>
+</ul>
+<p>Auto-sensitivity (autosense or autosens) reviews your last 8 hrs and 24 hrs of data every loop cycle (5 min) and determines whether you have been reacting more or less sensitively to insulin. It then makes conservative temporary adjustments to your basal rates, blood sugar target, and ISF.</p>
+<p>Example:
+Autosense finds Bill has been running more sensitive to insulin lately. In the last 24 hours, he has been 2X more sensitive to insulin, whereas in the last 8 hours, he has been 3X more sensitive to insulin.</p>
+<p>Autosense then takes the more conservative calculated sensitivity. In this example, the more conservative value is obtained from the 8 hour window because by assuming Bill is 3X more as opposed to 2X more sensitive to insulin, the system will be posed to give less insulin.</p>
+<p>If you are using autotune, autosense will use your calculated autotune ICR, ISF and basal rates as its baseline as opposed to your set values.</p>
+<p>Note that autosense does not look at meals and make adjustments to your ICR. It only looks at your sensitivity to insulin and adjust ISF/basal rates/blood sugar targets accordingly.</p>
+<h2 id="dynamic-isf">Dynamic ISF</h2>
+<p>Autosense was thought by many to be too conservative and slow at making changes. Dynamic ISF is a drop-in replacement for autosense's ISF calculation formula, with the goal of making it more aggressive. If you find that you have high ISF variability throughout the day, you can turn this feature on.</p>
+<p>Dynamic ISF takes into consideration a new variable called "Adjustment Factor" which affects its aggressiveness. If dynamic ISF is too aggressive, you can decrease this number by 0.05-0.1 points to make it more meek. Likewise, increase this number if you still feel dynamic ISF is not aggressive enought.</p>
+<p>Note: Dynamic ISF is temporarily disabled and the system reverts to autosense if either "High Temptarget Raises Sensitivity" or "Exercise Mode" is enabled and a high temporary target has been set by the user.</p>
+<h3 id="advanced-information">Advanced information</h3>
+<p>Autosense determines an ratio (autosens.ratio) and alters your ISF in the following manner:</p>
+<ul>
+<li>New ISF = (profile set ISF)/(autosens.ratio)</li>
+</ul>
+<p>Example: Bill has an ISF of 3 in his settings. The system finds Bill has been more resistant to insulin lately and needs to increase his insulin. It calculates Bill to have an autosens.ratio of 1.1 (note that a larger autosens.ratio results in you having a lower, more aggressive ISF):</p>
+<p>When autosense goes to adjust the ISF, it does the following calculation:</p>
+<ul>
+<li>3 UL/mmol / 1.1 = 2.73 UL/mmol</li>
+</ul>
+<p>Bill is now temporarily set to have an ISF of 2.73.</p>
+<p>Dynamic ISF (using the default logarithmic algorithm in FreeAPS X) uses an alternative formula to calculate the autosens.ratio for ISF adjustments:</p>
+<ul>
+<li>autosens.ratio = profile.sens * AF * TDD * log((BG/peak)+1) / 1800</li>
+<li>New ISF = (profile set ISF)/(autosens.ratio)</li>
+</ul>
+<p>This formula takes into consideration your profile set ISF (profile.sens in mg/dl) current blood glucose (BG in mg/dl), total daily dose (TDD over the last 24 hours), insulin peak effect (peak activity normally is 120 min) and a new variable called adjustment factor (AF) that allows for user tuning of Dynamic ISF/CR.</p>
+<h2 id="dynamic-cr">Dynamic CR</h2>
+<p>This is an experimental feature that alters the carb ratio (CR) based on current blood sugar and total daily dose (TDD). Unlike ISF, ICR by default is not altered by autosense and changed every Loop cycle. Using dynamic CR will result in a dramatic change in how ICR is calculated by FreeAPS X, and will result in it being modified every 5 min. Dynamic CR uses a similar formula as Dynamic ISF as described above:</p>
+<ul>
+<li>autosens.ratio = profile.sens * AF * TDD * log((BG/peak)+1) / 1800</li>
+<li>New CR = (profile set CR)/(autosens.ratio)</li>
+</ul>
+<p>If you find your CR changes dramatically day to day and FreeAPS X is not providing adequate bolus recommendations, you can test this feature. Note that FreeAPS X is already making modifications to your recommended boluses without this feature enabled.</p>
+<p>Note:
+If the autosens.ratio is greater than 1, the following formula is used to make the calculated CR less aggressive: </p>
+<ul>
+<li>new.autosens.ratio = (autosens.ratio - 1)/2 + 1 </li>
+</ul>
+<h2 id="adjust-basal">Adjust Basal</h2>
+<p>Adjust basal replaces autosense's formula for adjusting basal rates, with one dependent on total daily dose (TDD) of insulin. Turn on this setting to give basal adjustments more agility. If you have high variability of TDD day-to-day, keep this setting off.</p>
+<h3 id="advanced-information_1">Advanced Information</h3>
+<p>Normally a new basal rate is set by autosens:</p>
+<ul>
+<li>New basal profile = current basal profile * autosens.ratio</li>
+</ul>
+<p>Adjust basal replaces the autosens.ratio with its own autosens.ratio calculated as such:</p>
+<ul>
+<li>autosens.ratio = (weighted average of TDD)/(2 week average of TDD)</li>
+<li>New basal profile = current basal profile * autosens.ratio</li>
+</ul>
+<p>See "Weighted Average of TDD" setting to understand how this variable is calculated.</p>
+<p>As an example:</p>
+<p>Bill has a TDD of 55 U over the last 24 hours. He has a 14 day TDD average of 48 U. He has set his "Weighted average of TDD" in preferences to 0.7. His current profile basal rate is 1 U/h.</p>
+<ul>
+<li>Weighted average of TDD = 0.7 * 55 U + 0.3 * 48 U = 52.9 U</li>
+<li>basal.autosens.ratio = 52.9 U / 48 U = 1.10</li>
+<li>New basal profile = 1 U/h * 1.10 = 1.10 U/h</li>
+</ul>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<ul>
+<li>Remember that all autosense ratios calculated in this section are being limited by autosens max and autosens min safety limiters.</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6df46069.min.js"></script>
+      
+    
+  </body>
+</html>
