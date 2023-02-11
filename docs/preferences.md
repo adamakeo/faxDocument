@@ -391,9 +391,9 @@ Recommended to keep this setting enabled.
 Deprecated; Bolus snooze has been removed in latest versions of OpenAPS so this value does not matter.
 
 ### Min 5m Carbimpact
-This is a fallback setting used by FreeAPS X. If FreeAPS X is unable to tell if carbs are being absorbed and depleted from blood sugar readings, it will
+This is a fallback setting used by FreeAPS X. If FreeAPS X is unable to tell if carbs are being absorbed from blood sugar readings, it will estimate how many carbs have been absorbed using this setting.
 
--> this description should be verified
+The default value of 8mg/dL/5min assumes carbohydrates will increase blood sugar by 8 mg/dl every 5 minutes. The actual amount of carbohydrates estimated to be absorbed is depended on your calculated carbohydrate sensitivity ratio (CSF = ISF/ICR)
 
 ### Autotune ISF Adjustment Fraction
 
