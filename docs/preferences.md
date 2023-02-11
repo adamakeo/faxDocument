@@ -413,8 +413,30 @@ Example: Bill has a profile ISF of 3. Autotune thinks he has a true ISF value of
 Assuming autotune is not being limited by the autosense max and min, Bill's ISF will be set to 3.2 by autotune tonight. Autotune will then repeat the following night, starting with a profileISF = 3.2
 
 ### Remaining Carbs Fraction
+This is the fraction of carbs that is assumed not to be absorbed yet after 4 hours if carb absorption has not been seen. 
 
+When attempting to measure carbohydrates on board (COB) FreeAPS X may not be fully accurate. This setting is a safety feature that can prevent FreeAPS X from providing insulin for non-existent carbs.
+
+Example: It has been 4 hours since Bill ate 20 carbs. FreeAPS X has been able to calculate that hes absorbed 15 carbs, but cannot account for the 5 other carbs yet. Bill has a remaining carbs fraction of 0.75
+
+- Remaining COB = COB - absorbedCarbs - mealCarbs * (1 - carbsFraction)
+
+- 20 - 15 - 20(1 - 0.75) = 0 
+
+Bill is assumed to have zero carbs on board
+
+Recommend to keep this value at the default of 1 meaning it will not impact FreeAPS X's calculations. This feature is closely tied to "Remaining Carbs Cap."
 
 ### Remaining Carbs Cap
+This setting is a safety limiter that determines the maximum amount of carbs that are assumed to be absorbed after 4 hours if carb absorption. A minimum of 90 carbs is mandatory for this setting.
+
+Example: Bill eats 150 carbs. After 4 hours, FreeAPS X calculates a COB of 110. It will truncate that number to 90 carbs.
+
+Recommended to keep this value at default unless you know what you are doing.
 
 ### Noisy CGM Target Multiplier
+If FreeAPS X detects that CGM data has been noisy, it will increase your target blood sugar by a set fraction to avoid you getting low. Default is 30% higher (1.3)
+
+Example: Bill's FreeAPS X has calculated a blood glucose target of 90 mg/dl (5 mmol/L). But Bill has a noisy sensor. He has set his "Noisy CGM Target Multiplier" to 1.3. FreeAPS X will thereby use a target bg of:
+
+- 90 mg/dL * 1.3 = 117 mg/dL
