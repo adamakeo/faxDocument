@@ -440,3 +440,5 @@ If FreeAPS X detects that CGM data has been noisy, it will increase your target 
 Example: Bill's FreeAPS X has calculated a blood glucose target of 90 mg/dl (5 mmol/L). But Bill has a noisy sensor. He has set his "Noisy CGM Target Multiplier" to 1.3. FreeAPS X will thereby use a target bg of:
 
 - 90 mg/dL * 1.3 = 117 mg/dL
+
+Recommended to keep this value at default of 1.3.
